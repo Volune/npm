@@ -155,7 +155,7 @@ test('setup basic', function (t) {
 })
 
 test('request basic', function (t) {
-  updateIndex(0, function (er) {
+  updateIndex(npm, 0, function (er) {
     t.ifError(er, 'no error')
     t.end()
   })
@@ -168,7 +168,7 @@ test('setup auth', function (t) {
 })
 
 test('request auth failure', function (t) {
-  updateIndex(0, function (er) {
+  updateIndex(npm, 0, function (er) {
     t.equals(er.code, 'E401', 'gotta get that auth')
     t.ok(/^unauthorized/.test(er.message), 'unauthorized message')
     t.end()
@@ -186,7 +186,7 @@ test('setup auth', function (t) {
 })
 
 test('request auth success', function (t) {
-  updateIndex(0, function (er) {
+  updateIndex(npm, 0, function (er) {
     t.ifError(er, 'no error')
     t.end()
   })
