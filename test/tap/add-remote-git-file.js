@@ -33,7 +33,7 @@ test('setup', function (t) {
 test('cache from repo', function (t) {
   process.chdir(pkg)
   var addRemoteGit = require('../../lib/cache/add-remote-git.js')
-  addRemoteGit(cloneURL, function (er, data) {
+  addRemoteGit(npm, cloneURL, function (er, data) {
     t.ifError(er, 'cached via git')
     t.equal(
       url.parse(data._resolved).protocol,

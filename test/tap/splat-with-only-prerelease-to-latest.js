@@ -71,7 +71,7 @@ test('setup', function (t) {
 test('splat', function (t) {
   t.plan(4)
   var addNamed = require('../../lib/cache/add-named.js')
-  addNamed('xyzzy-wibble', '*', testModule, function (err, pkg) {
+  addNamed(npm, 'xyzzy-wibble', '*', testModule, function (err, pkg) {
     t.error(err, 'Succesfully resolved a splat package')
     t.is(pkg.name, moduleName)
     t.is(pkg.version, testModule['dist-tags'].latest)

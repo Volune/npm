@@ -46,10 +46,10 @@ var realizePackageSpecifier = requireInject('realize-package-specifier', {
 npm.load({ loglevel: 'silent' }, function () {
   var cache = requireInject('../../lib/cache.js', {
     'realize-package-specifier': realizePackageSpecifier,
-    '../../lib/cache/add-named.js': function addNamed (name, version, data, cb) {
+    '../../lib/cache/add-named.js': function addNamed (npm, name, version, data, cb) {
       cb(null, 'addNamed')
     },
-    '../../lib/cache/add-local.js': function addLocal (name, data, cb) {
+    '../../lib/cache/add-local.js': function addLocal (npm, name, data, cb) {
       cb(null, 'addLocal')
     }
   })
