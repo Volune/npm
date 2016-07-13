@@ -8,7 +8,12 @@ var creds = {
   '//registry.npmjs.org/:username': 'u',
   '//registry.npmjs.org/:_password': new Buffer('p').toString('base64'),
   '//registry.npmjs.org/:email': 'e',
-  cache: common.npm_config_cache
+  cache: common.npm_config_cache,
+
+  // ensure not to conflict with environment configuration
+  'registry': 'https://registry.npmjs.org/',
+  '//registry.npmjs.org/:__authToken': '',
+  '//registry.npmjs.org/:always-auth': 'false'
 }
 test('setup', function (t) {
   npm.load(creds, function (err) {
